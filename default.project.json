@@ -1,0 +1,22 @@
+{
+    "name": "flow",
+    "tree": {
+        "$className": "DataModel",
+        "ReplicatedStorage": {
+            "Packages": {
+                "$path": "deps/",
+                "Flow": {
+                    "$path": "packages/flow/default.project.json"
+                },
+                "YogaSys": {
+                    "$path": "packages/yoga-sys/default.project.json"
+                }
+            }
+        },
+        "ServerScriptService": {
+            "Tests": {
+                "$path": "tests/"
+            }
+        }
+    }
+}

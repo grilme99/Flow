@@ -1,0 +1,6 @@
+[tools]
+stylua = "JohnnyMorganz/stylua@0.17.1"
+lune = "filiptibell/lune@0.7.2"
+rojo = "UpliftGames/rojo@7.3.0-uplift.11"
+wally-package-types = "johnnymorganz/wally-package-types@1.2.1"
+wally = "UpliftGames/wally@0.3.2"
