@@ -17,8 +17,6 @@ install-packages:
     rojo sourcemap default.project.json --output sourcemap.json
     wally-package-types --sourcemap sourcemap.json deps/
 
-    echo "{ \"languageMode\": \"nocheck\" }" > deps/_Index/evaera_promise@4.0.0/promise/.luaurc
-
 generate-macros:
     lune tools/replaceMacros.lua | pbcopy
     echo "Macros copied to clipboard"
