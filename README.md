@@ -10,6 +10,8 @@
 
 **A Flexbox layouting engine for Lua**
 
+[![CI](https://github.com/grilme99/Flow/actions/workflows/ci.yml/badge.svg)](https://github.com/grilme99/Flow/actions/workflows/ci.yml) [![Wally](https://img.shields.io/badge/Wally-v1.0.0-AD4646)](https://wally.run/package/grilme99/flow)
+
 </div>
 
 ## About
