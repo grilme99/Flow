@@ -98,7 +98,7 @@ return {
             yogaAssertionsModule = YogaAssertions,
             yogaUtilsModule = yogaUtilsModule,
         })
-        YGNode = ygNodeModule.YGNode
+        YGNode = ygNodeModule
 
         return YogaAssertions
     end,
