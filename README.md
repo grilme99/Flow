@@ -14,16 +14,16 @@
 
 ## About
 
-Flow is a Flexbox layout engine with the goal of performance and spec conformance. If it's in the Flexbox spec, Flow
-wants to support it. We're based on Meta's [Yoga](https://github.com/facebook/yoga), see
-[Acknowledgements](#acknowledgements) for more details.
+Flow aims to be a high-performance Flexbox layout engine that adheres closely to the Flexbox specification. It is based
+on Meta's [Yoga](https://github.com/facebook/yoga) library. For more details, refer to the
+[Acknowledgements](#acknowledgements) section.
 
 ## Testing
 
 ### Adding Tests
 
-Many of Flows's tests are automatically generated, using HTML fixtures describing node structure. These are rendered in
-Chrome to generate an expected layout result for the tree. New fixtures can be added to `gentest/fixtures`.
+Flow generates many of its tests automatically from HTML fixtures. These fixtures describe the node structure and are
+rendered in Chrome to get expected layout outcomes. To add new fixtures, place them in the `gentest/fixtures` directory.
 
 ```html
 <div id="my_test" style="width: 100px; height: 100px; align-items: center;">
@@ -31,21 +31,22 @@ Chrome to generate an expected layout result for the tree. New fixtures can be a
 </div>
 ```
 
-To generate new tests from added fixtures:
+To generate new tests:
 
-1. Run `npm install` in the `gentest` directory to install dependencies of the test generator.
-2. Run `node index.js` in the `gentest` directory.
+1. Navigate to the `gentest` directory and run `npm install` to set up the test generator.
+2. Execute `node index.js` in the same directory.
 
 ### Running Tests
 
-Roblox Studio is currently required to run Flow's unit test suite. See [this issue](https://github.com/grilme99/Flow/issues/3)
-for more details.
+Roblox Studio is required to execute Flow's benchmarks unit tests. See
+[this issue](https://github.com/grilme99/Flow/issues/3) for more details.
 
-To test in Roblox Studio:
+To run tests in Roblox Studio:
 
-1. Install packages with `just install-packages`.
-2. Build the project with `rojo build --output Flow.rbxl`. This uses the default project file, which is made for tests.
-3. Open the Roblox file and enable or disable the `RunBench` or `RunTests` scripts depending on which you want to do.
+1. Use `just install-packages` to set up required packages.
+2. Build the project via `rojo build --output Flow.rbxl`.
+3. Open the generated Roblox file and toggle the `RunBench` or `RunTests` scripts as needed (found under
+   `ServerScriptService`).
 4. Run the game and the results will be printed to the output.
 
 ## Benchmarks
@@ -54,9 +55,8 @@ TODO: Add benchmarks here
 
 ## Acknowledgements
 
-Flow is hand-translated from [Typeflex](https://github.com/dead/typeflex), which itself is a Typescript port of Yoga.
-Some of Flow's internals are also based on (licensed) work done by [Roblox](https://www.roblox.com/) internally to
-investigate Flexbox in Lua.
+Flow is a Lua adaptation of [Typeflex](https://github.com/dead/typeflex), a Typescript port of Yoga. It also
+incorporates some work by [Roblox](https://www.roblox.com/) for Flexbox exploration in Lua.
 
 As time goes on, it's likely Flow will deviate from Typeflex and align more closely with upstream Yoga. See
 [this issue](https://github.com/grilme99/Flow/issues/2) for more details.
