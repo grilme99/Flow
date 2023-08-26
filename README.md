@@ -23,7 +23,8 @@ on Meta's [Yoga](https://github.com/facebook/yoga) library. For more details, re
 ### Adding Tests
 
 Flow generates many of its tests automatically from HTML fixtures. These fixtures describe the node structure and are
-rendered in Chrome to get expected layout outcomes. To add new fixtures, place them in the `gentest/fixtures` directory.
+rendered in Chrome to get expected layout outcomes. To add new fixtures, place them in the `scripts/gentest/fixtures`
+directory.
 
 ```html
 <div id="my_test" style="width: 100px; height: 100px; align-items: center;">
@@ -33,7 +34,7 @@ rendered in Chrome to get expected layout outcomes. To add new fixtures, place t
 
 To generate new tests:
 
-1. Navigate to the `gentest` directory and run `npm install` to set up the test generator.
+1. Navigate to the `scripts/gentest` directory and run `npm install` to set up the test generator.
 2. Execute `node index.js` in the same directory.
 
 ### Running Tests
