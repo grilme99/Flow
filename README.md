@@ -8,7 +8,7 @@
 
 # `🌊 Flow`
 
-**Flexbox layouting for Roblox and Lua**
+**A Flexbox layouting engine for Lua**
 
 </div>
 
