@@ -68,7 +68,7 @@ const handlebars = require("handlebars");
     const testFile = logs.join("");
 
     fs.writeFileSync(
-      `../tests/generated/${name}.test.luau`,
+      `../../tests/generated/${name}.test.luau`,
       testFile.replace("YogaTest", name)
     );
   }
