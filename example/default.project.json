@@ -12,6 +12,11 @@
                 "$className": "StarterPlayerScripts",
                 "$path": "src/"
             }
+        },
+        "Players": {
+            "$properties": {
+                "CharacterAutoLoads": false
+            }
         }
     }
 }
