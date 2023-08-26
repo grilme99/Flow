@@ -1,0 +1,16 @@
+{
+    "name": "Flow Example",
+    "tree": {
+        "$className": "DataModel",
+        "ReplicatedStorage": {
+            "Packages": {
+                "$path": "packages/"
+            }
+        },
+        "StarterPlayer": {
+            "StarterPlayerScripts": {
+                "$path": "src/"
+            }
+        }
+    }
+}

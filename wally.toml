@@ -2,7 +2,7 @@
 # THIS PACKAGE IS NOT DIRECTLY PUBLISHED!
 
 [package]
-name = "jsdotlua/no-op"
+name = "grilme99/no-op"
 version = "0.1.0"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
