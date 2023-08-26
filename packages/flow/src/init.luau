@@ -47,7 +47,7 @@ export type Wrap = YogaSys.YGWrap
 Flow.Config = Config
 export type Config = Config.Config
 Flow.Node = Node
-export type node = Node.Node
+export type Node = Node.Node
 
 Flow.Size = Utils.Size
 export type Size = Utils.Size
