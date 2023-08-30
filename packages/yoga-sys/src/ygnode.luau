@@ -768,7 +768,7 @@ end
 
 function YGNode:clearChildren(): ()
     while #self.children_ > 0 do
-        table.remove(self.children)
+        table.remove(self.children_)
     end
 end
 
