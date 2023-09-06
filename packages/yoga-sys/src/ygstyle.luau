@@ -130,12 +130,12 @@ function YGStyle.new(): YGStyle
     return (self :: any) :: YGStyle
 end
 
-function YGStyle:isEqual(style: YGStyle): boolean
+function YGStyle.isEqual(self: YGStyle, style: YGStyle): boolean
     local areNonFloatValuesEqual: boolean = self.direction == style.direction
         and self.flexDirection == style.flexDirection
         and self.justifyContent == style.justifyContent
         and self.alignContent == style.alignContent
-        and self.alignitems == style.alignItems
+        and self.alignItems == style.alignItems
         and self.alignSelf == style.alignSelf
         and self.positionType == style.positionType
         and self.flexWrap == style.flexWrap
@@ -172,11 +172,11 @@ function YGStyle:isEqual(style: YGStyle): boolean
     return areNonFloatValuesEqual
 end
 
-function YGStyle:isDiff(style: YGStyle): boolean
+function YGStyle.isDiff(self: YGStyle, style: YGStyle): boolean
     return not self:isEqual(style)
 end
 
-function YGStyle:clone(): YGStyle
+function YGStyle.clone(self: YGStyle): YGStyle
     local newStyle: YGStyle = YGStyle.new()
 
     newStyle.direction = self.direction

@@ -68,7 +68,8 @@ function YGConfig.new(logger: YGLogger): YGConfig
     return (self :: any) :: YGConfig
 end
 
-function YGConfig:log(
+function YGConfig.log(
+    self: YGConfig,
     config: YGConfig,
     node: YGNode,
     logLevel: YGLogLevel,
@@ -79,7 +80,7 @@ function YGConfig:log(
     self.logger(config, node, logLevel, logContext, format, ...)
 end
 
-function YGConfig:cloneNode(node: YGNode, owner: YGNode, childIndex: number, cloneContext: any?): YGNode
+function YGConfig.cloneNode(self: YGConfig, node: YGNode, owner: YGNode, childIndex: number, cloneContext: any?): YGNode
     local clone: YGNode = nil
     if self.cloneNodeCallback ~= nil then
         clone = self.cloneNodeCallback(node, owner, childIndex, cloneContext)
@@ -90,12 +91,12 @@ function YGConfig:cloneNode(node: YGNode, owner: YGNode, childIndex: number, clo
     return clone
 end
 
-function YGConfig:setLogger(logger: YGLogger?): ()
-    self.logger = logger
+function YGConfig.setLogger(self: YGConfig, logger: YGLogger?): ()
+    self.logger = logger :: any
 end
 
-function YGConfig:setCloneNodeCallback(cloneNode: YGCloneNodeFunc?): ()
-    self.cloneNodeCallback = cloneNode
+function YGConfig.setCloneNodeCallback(self: YGConfig, cloneNode: YGCloneNodeFunc?): ()
+    self.cloneNodeCallback = cloneNode :: any
 end
 
 -- note: Some imports are done dynamically to resolve cyclic dependency issues.

@@ -50,9 +50,9 @@ type YGLayout = Types.YGLayout
 type YGFloatOptional = Types.YGFloatOptional
 type YGCachedMeasurement = Types.YGCachedMeasurement
 
-local function kYGDefaultDimensionValues(): Array<number?>
+local function kYGDefaultDimensionValues(): Array<number>
     -- CHECK: this will return empty array. If the code requires the array to have length of 2 it might not work
-    return { nil, nil }
+    return { nil, nil } :: any
 end
 
 local YG_MAX_CACHED_RESULT_COUNT = 16
@@ -94,39 +94,39 @@ function YGLayout.new(): YGLayout
     return (self :: any) :: YGLayout
 end
 
-function YGLayout:getDirection(): YGDirection
+function YGLayout.getDirection(self: YGLayout): YGDirection
     return self.direction
 end
 
-function YGLayout:setDirection(direction: YGDirection): ()
+function YGLayout.setDirection(self: YGLayout, direction: YGDirection): ()
     self.direction = direction
 end
 
-function YGLayout:getDidUseLegacyFlag(): boolean
+function YGLayout.getDidUseLegacyFlag(self: YGLayout): boolean
     return self.didUseLegacyFlag
 end
 
-function YGLayout:setDidUseLegacyFlag(val: boolean): ()
+function YGLayout.setDidUseLegacyFlag(self: YGLayout, val: boolean): ()
     self.didUseLegacyFlag = val
 end
 
-function YGLayout:getDoesLegacyStretchFlagAffectsLayout(): boolean
+function YGLayout.getDoesLegacyStretchFlagAffectsLayout(self: YGLayout): boolean
     return self.doesLegacyStretchFlagAffectsLayout
 end
 
-function YGLayout:setDoesLegacyStretchFlagAffectsLayout(val: boolean): ()
+function YGLayout.setDoesLegacyStretchFlagAffectsLayout(self: YGLayout, val: boolean): ()
     self.doesLegacyStretchFlagAffectsLayout = val
 end
 
-function YGLayout:getHadOverflow(): boolean
+function YGLayout.getHadOverflow(self: YGLayout): boolean
     return self.hadOverflow
 end
 
-function YGLayout:setHadOverflow(hadOverflow: boolean): ()
+function YGLayout.setHadOverflow(self: YGLayout, hadOverflow: boolean): ()
     self.hadOverflow = hadOverflow
 end
 
-function YGLayout:equal(layout: YGLayout): boolean
+function YGLayout.equal(self: YGLayout, layout: YGLayout): boolean
     local isEqual: boolean = YGFloatArrayEqual(self.position, layout.position)
         and YGFloatArrayEqual(self.dimensions, layout.dimensions)
         and YGFloatArrayEqual(self.margin, layout.margin)
@@ -156,11 +156,11 @@ function YGLayout:equal(layout: YGLayout): boolean
     return isEqual
 end
 
-function YGLayout:diff(layout: YGLayout): boolean
+function YGLayout.diff(self: YGLayout, layout: YGLayout): boolean
     return not self:equal(layout)
 end
 
-function YGLayout:clean(): ()
+function YGLayout.clean(self: YGLayout): ()
     self.dimensions = kYGDefaultDimensionValues()
     self.direction = YGDirection.Inherit
     self.computedFlexBasisGeneration = 0
@@ -173,14 +173,14 @@ function YGLayout:clean(): ()
     self.cachedLayout = YGCachedMeasurement.new()
     self.didUseLegacyFlag = false
     self.doesLegacyStretchFlagAffectsLayout = false
-    self.position = { nil, nil, nil, nil }
-    self.margin = { nil, nil, nil, nil, nil, nil }
-    self.border = { nil, nil, nil, nil, nil, nil }
-    self.padding = { nil, nil, nil, nil, nil, nil }
+    self.position = { nil, nil, nil, nil } :: any
+    self.margin = { nil, nil, nil, nil, nil, nil } :: any
+    self.border = { nil, nil, nil, nil, nil, nil } :: any
+    self.padding = { nil, nil, nil, nil, nil, nil } :: any
     self.cachedMeasurements = buildCache(YG_MAX_CACHED_RESULT_COUNT)
 end
 
-function YGLayout:clone(): YGLayout
+function YGLayout.clone(self: YGLayout): YGLayout
     local newLayout = YGLayout.new()
 
     newLayout.dimensions = {

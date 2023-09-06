@@ -70,7 +70,7 @@ function YGValue.new(value: number, unit: YGUnit): YGValue
     return (self :: any) :: YGValue
 end
 
-function YGValue:eq(value: YGValue): boolean
+function YGValue.eq(self: YGValue, value: YGValue): boolean
     local lhs = self
     local rhs = value
 
@@ -87,20 +87,20 @@ function YGValue:eq(value: YGValue): boolean
     return false
 end
 
-function YGValue:neq(value: YGValue): boolean
+function YGValue.neq(self: YGValue, value: YGValue): boolean
     return not self:eq(value)
 end
 
-function YGValue:subtract(value: YGValue): YGValue
+function YGValue.subtract(self: YGValue, value: YGValue): YGValue
     return YGValue.new(-value.value, value.unit)
 end
 
-function YGValue:clone(): YGValue
+function YGValue.clone(self: YGValue): YGValue
     return YGValue.new(self.value, self.unit)
 end
 
 -- deviation: upstream this is only provided in CompactValue.
-function YGValue:isUndefined(): boolean
+function YGValue.isUndefined(self: YGValue): boolean
     return self.unit == YGUnit.Undefined
 end
 exports.YGValue = YGValue

@@ -68,7 +68,7 @@ function YGFloatOptional.new(value_: (number | YGFloatOptional)?): YGFloatOption
     return (self :: any) :: YGFloatOptional
 end
 
-function YGFloatOptional:unwrap(): number
+function YGFloatOptional.unwrap(self: YGFloatOptional): number
     if not self.isUndefined_ then
         return self.value_
     else
@@ -76,80 +76,80 @@ function YGFloatOptional:unwrap(): number
     end
 end
 
-function YGFloatOptional:clone(): YGFloatOptional
+function YGFloatOptional.clone(self: YGFloatOptional): YGFloatOptional
     return YGFloatOptional.new((function()
         if self.isUndefined_ then
-            return nil
+            return nil :: number?
         else
             return self.value_
         end
     end)())
 end
 
-function YGFloatOptional:getValue(): number
+function YGFloatOptional.getValue(self: YGFloatOptional): number
     if self.isUndefined_ then
         error("Tried to get value of an undefined YGFloatOptional")
     end
     return self.value_
 end
 
-function YGFloatOptional:setValue(value: number): ()
+function YGFloatOptional.setValue(self: YGFloatOptional, value: number): ()
     self.value_ = value
     self.isUndefined_ = false
 end
 
-function YGFloatOptional:isUndefined(): boolean
+function YGFloatOptional.isUndefined(self: YGFloatOptional): boolean
     return self.isUndefined_
 end
 
-function YGFloatOptional:add(op: YGFloatOptional): YGFloatOptional
+function YGFloatOptional.add(self: YGFloatOptional, op: YGFloatOptional): YGFloatOptional
     if not self.isUndefined_ and not op:isUndefined() then
         return YGFloatOptional.new(self.value_ + op:getValue())
     end
     return YGFloatOptional.new()
 end
 
-function YGFloatOptional:isBigger(op: YGFloatOptional): boolean
+function YGFloatOptional.isBigger(self: YGFloatOptional, op: YGFloatOptional): boolean
     if self.isUndefined_ or op:isUndefined() then
         return false
     end
     return self.value_ > op:getValue()
 end
 
-function YGFloatOptional:isSmaller(op: YGFloatOptional): boolean
+function YGFloatOptional.isSmaller(self: YGFloatOptional, op: YGFloatOptional): boolean
     if self.isUndefined_ or op:isUndefined() then
         return false
     end
     return self.value_ < op:getValue()
 end
 
-function YGFloatOptional:isBiggerEqual(op: YGFloatOptional): boolean
+function YGFloatOptional.isBiggerEqual(self: YGFloatOptional, op: YGFloatOptional): boolean
     return self:isEqual(op) or self:isBigger(op)
 end
 
-function YGFloatOptional:isSmallerEqual(op: YGFloatOptional): boolean
+function YGFloatOptional.isSmallerEqual(self: YGFloatOptional, op: YGFloatOptional): boolean
     return self:isEqual(op) or self:isSmaller(op)
 end
 
-function YGFloatOptional:isEqual(op: YGFloatOptional): boolean
+function YGFloatOptional.isEqual(self: YGFloatOptional, op: YGFloatOptional): boolean
     if self.isUndefined_ == op:isUndefined() then
         return self.isUndefined_ or self.value_ == op:getValue()
     end
     return false
 end
 
-function YGFloatOptional:isDiff(op: YGFloatOptional): boolean
+function YGFloatOptional.isDiff(self: YGFloatOptional, op: YGFloatOptional): boolean
     return not self:isEqual(op)
 end
 
-function YGFloatOptional:isEqualValue(val: number): boolean
+function YGFloatOptional.isEqualValue(self: YGFloatOptional, val: number): boolean
     if YGFloatIsUndefined(val) == self.isUndefined_ then
         return self.isUndefined_ or val == self.value_
     end
     return false
 end
 
-function YGFloatOptional:isDiffValue(val: number): boolean
+function YGFloatOptional.isDiffValue(self: YGFloatOptional, val: number): boolean
     return not self:isEqualValue(val)
 end
 
