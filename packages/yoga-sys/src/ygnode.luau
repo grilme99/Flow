@@ -219,7 +219,9 @@ function YGNode.initialize(
     local lineIndex = if lineIndex_ == nil then 1 else lineIndex_
     local children = if children_ == nil then {} else children_
     local isDirty = if isDirty_ == nil then false else isDirty_
-    local resolvedDimensions = if resolvedDimensions_ == nil then { YGValueUndefined(), YGValueUndefined() } else resolvedDimensions_
+    local resolvedDimensions = if resolvedDimensions_ == nil
+        then { YGValueUndefined(), YGValueUndefined() }
+        else resolvedDimensions_
 
     self.print_ = print_
     self.hasNewLayout_ = hasNewLayout
@@ -322,7 +324,12 @@ function YGNode.computeEdgeValueForRow(
     end
 end
 
-function YGNode.computeEdgeValueForColumn(self: YGNode, edges: Array<YGValue>, edge: YGEdge, defaultValue: YGValue): YGValue
+function YGNode.computeEdgeValueForColumn(
+    self: YGNode,
+    edges: Array<YGValue>,
+    edge: YGEdge,
+    defaultValue: YGValue
+): YGValue
     if not edges[edge]:isUndefined() then
         return edges[edge]
     elseif not edges[YGEdge.Vertical]:isUndefined() then
@@ -651,7 +658,13 @@ function YGNode.setLayoutPosition(self: YGNode, position: number, index: number)
     self.layout_.position[index] = position
 end
 
-function YGNode.setPosition(self: YGNode, direction: YGDirection, mainSize: number, crossSize: number, ownerWidth: number): ()
+function YGNode.setPosition(
+    self: YGNode,
+    direction: YGDirection,
+    mainSize: number,
+    crossSize: number,
+    ownerWidth: number
+): ()
     local directionRespectingRoot: YGDirection = if self.owner_ ~= nil then direction else YGDirection.LTR
     local mainAxis: YGFlexDirection = YGResolveFlexDirection(self.style_.flexDirection, directionRespectingRoot)
     local crossAxis: YGFlexDirection = YGFlexDirectionCross(mainAxis, directionRespectingRoot)
@@ -836,7 +849,12 @@ function YGNode.resolveFlexShrink(self: YGNode): number
         return self.style_.flexShrink:getValue()
     end
 
-    if self.config_ and not self.config_.useWebDefaults and not self.style_.flex:isUndefined() and self.style_.flex:getValue() < 0.0 then
+    if
+        self.config_
+        and not self.config_.useWebDefaults
+        and not self.style_.flex:isUndefined()
+        and self.style_.flex:getValue() < 0.0
+    then
         return -self.style_.flex:getValue()
     end
 
