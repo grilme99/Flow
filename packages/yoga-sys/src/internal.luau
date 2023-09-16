@@ -63,7 +63,7 @@ function YGCachedMeasurement.new(): YGCachedMeasurement
     return (self :: any) :: YGCachedMeasurement
 end
 
-function YGCachedMeasurement:isEqual(measurement: YGCachedMeasurement): boolean
+function YGCachedMeasurement.isEqual(self: YGCachedMeasurement, measurement: YGCachedMeasurement): boolean
     local isEqual = self.widthMeasureMode == measurement.widthMeasureMode
         and self.heightMeasureMode == measurement.heightMeasureMode
 
@@ -86,7 +86,7 @@ function YGCachedMeasurement:isEqual(measurement: YGCachedMeasurement): boolean
     return isEqual
 end
 
-function YGCachedMeasurement:clone(): YGCachedMeasurement
+function YGCachedMeasurement.clone(self: YGCachedMeasurement): YGCachedMeasurement
     local newCached = YGCachedMeasurement.new()
     newCached.availableWidth = self.availableWidth
     newCached.availableHeight = self.availableHeight

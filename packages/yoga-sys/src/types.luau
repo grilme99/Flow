@@ -75,6 +75,8 @@ export type YGCachedMeasurement = {
     heightMeasureMode: YGMeasureMode,
     computedWidth: number,
     computedHeight: number,
+    isEqual: (self: YGCachedMeasurement, measurement: YGCachedMeasurement) -> boolean,
+    clone: (self: YGCachedMeasurement) -> YGCachedMeasurement,
 }
 
 export type YGFloatOptional = {
@@ -204,7 +206,7 @@ export type IterChildrenCallback = (node: YGNode, cloneContext: any) -> ()
 
 export type YGNode = {
     context_: any,
-    print_: YGPrintFunc,
+    print_: YGPrintFunc?,
     hasNewLayout_: boolean,
     isReferenceBaseline_: boolean,
     nodeType_: YGNodeType,
@@ -256,6 +258,7 @@ export type YGNode = {
         isDirty: boolean?,
         resolvedDimensions: Array<YGValue | YGValue>?
     ) -> (),
+    relativePosition: (self: YGNode, axis: YGFlexDirection, axisSize: number) -> YGFloatOptional,
     operatorAtrib: (self: YGNode, node: YGNode) -> YGNode,
     fromNode: (self: YGNode, node: YGNode) -> (),
     print: (self: YGNode, printContext: any?) -> (),
