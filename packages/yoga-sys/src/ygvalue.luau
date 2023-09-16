@@ -91,7 +91,7 @@ function YGValue.neq(self: YGValue, value: YGValue): boolean
     return not self:eq(value)
 end
 
-function YGValue.subtract(self: YGValue, value: YGValue): YGValue
+function YGValue.subtract(_self: YGValue, value: YGValue): YGValue
     return YGValue.new(-value.value, value.unit)
 end
 

@@ -305,7 +305,7 @@ function YGNode.print(self: YGNode, printContext: any?): ()
 end
 
 function YGNode.computeEdgeValueForRow(
-    self: YGNode,
+    _self: YGNode,
     edges: Array<YGValue>,
     rowEdge: YGEdge,
     edge: YGEdge,
@@ -325,7 +325,7 @@ function YGNode.computeEdgeValueForRow(
 end
 
 function YGNode.computeEdgeValueForColumn(
-    self: YGNode,
+    _self: YGNode,
     edges: Array<YGValue>,
     edge: YGEdge,
     defaultValue: YGValue
