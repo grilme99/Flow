@@ -1,0 +1,22 @@
+{
+    "name": "Flow Example",
+    "tree": {
+        "$className": "DataModel",
+        "ReplicatedStorage": {
+            "Packages": {
+                "$path": "packages/"
+            }
+        },
+        "StarterPlayer": {
+            "StarterPlayerScripts": {
+                "$className": "StarterPlayerScripts",
+                "$path": "src/"
+            }
+        },
+        "Players": {
+            "$properties": {
+                "CharacterAutoLoads": false
+            }
+        }
+    }
+}

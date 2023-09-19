@@ -1,6 +1,3 @@
-# This config exists so we can import the dependencies of all packages for analysis and release.
-# THIS PACKAGE IS NOT DIRECTLY PUBLISHED!
-
 [package]
 name = "grilme99/no-op"
 version = "0.1.0"
@@ -8,4 +5,7 @@ registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 
 [dependencies]
+Flow = "grilme99/flow@1.0.0"
+React = "jsdotlua/react@17.0.2"
+ReactRoblox = "jsdotlua/react-roblox@17.0.2"
 LuauPolyfill = "jsdotlua/luau-polyfill@1.2.3"
